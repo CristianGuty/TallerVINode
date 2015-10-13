@@ -5,23 +5,53 @@ var express = require('express');
 var app = express();
 
 // Use environment defined port or 3000
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 80;
 
 // Create our Express router
 var router = express.Router();
 
+require('./routes')(app);
+
 // Initial dummy route for testing
-// http://localhost:3000/api
-router.get('/city', function(req, res) {
-  res.json({ message: 'te devuelvo argetina' });
+// http://localhost:80/api
+// Start the server
+app.listen(port);
+console.log('Insert beer on port ' + port);
+
+/*var connection = mysql.createConnection({
+   host: 'www.xints.com.ar',
+   user: 'irso',
+   password: 'colon34',
+   database: 'irso',
+   port: 3306
 });
+connection.connect(function(error){
+   if(error){ 
+      console.log ('Tuviste un error negro!');
+      throw error;
+
+
+   }else{
+      console.log('Conexion correcta.');
+   }
+});
+connection.end();
+
+ Register all our routes with /api
+app.use('/api', router);
+
+var buscarUsuario = function(req, res) {
+  var nombre = req.query.nombre;
+  var clave = req.query.clave;
+  
+  res.json({ message: 'te devuelvo argentina' });
+};
+
+router.get('/user', buscarUsuario);
+
 router.post('/city', function(req, res) {
   res.json({ message: 'inserto Argentina' });
 });
 
-// Register all our routes with /api
-app.use('/maps', router);
-
-// Start the server
-app.listen(port);
-console.log('Insert beer on port ' + port);
+router.get('/camping')
+*/
