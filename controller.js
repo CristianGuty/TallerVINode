@@ -23,7 +23,7 @@ exports.usuarios = function(req,res){
 		if (error != null)
 		{
 			console.log ('error: '+ error);
-			res.status(404).json({error: 'error interno'});  // NO deberia ser 404 sino una respuesta de error
+			res.status(500).json({error: 'error interno'});  // NO deberia ser 404 sino una respuesta de error
 		}
 		else
 		{
@@ -37,7 +37,7 @@ exports.usuarios = function(req,res){
 			else
 			{
 				console.log ('usuario no encontrado');
-				res.status(404).json({error:'usuario o contraseña invalidos'}); // NO deberia ser 404 sino una respuesta de error
+				res.status(400).json({error:'usuario o contraseña invalidos'}); // NO deberia ser 404 sino una respuesta de error
 			}
 		}
 	});

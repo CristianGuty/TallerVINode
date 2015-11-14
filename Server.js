@@ -10,13 +10,14 @@ var port = process.env.PORT || 80;
 // Create our Express router
 var router = express.Router();
 
+//require('./Connection')(app);
 require('./routes')(app);
 
 // Initial dummy route for testing
 // http://localhost:80/api
 // Start the server
 app.listen(port);
-console.log('Insert beer on port ' + port);
+console.log('Escuchando puerto: ' + port);
 
 /*var connection = mysql.createConnection({
    host: 'www.xints.com.ar',
